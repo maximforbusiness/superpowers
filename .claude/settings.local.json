@@ -128,14 +128,13 @@
       "Skill(superpowers:using-superpowers)",
       "Skill(episodic-memory:remembering-conversations)",
       "Skill(superpowers-developing-for-claude-code:developing-claude-code-plugins)",
-      "Skill(working-with-claude-code)"
+      "Skill(working-with-claude-code)",
+      "Skill(superpowers-extended:workflow-orchestrator)",
+      "Skill(superpowers-extended:writing-skills)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": [],
-    "additionalDirectories": [
-      "/Users/jesse/Documents/GitHub/superpowers/superpowers-skills/",
-      "/Users/jesse/Documents/GitHub/superpowers/superpowers-marketplace",
-      "/Users/jesse/Documents/GitHub/superpowers/using-chrome-directly/"
-    ]
+    "additionalDirectories": []
   }
 }
