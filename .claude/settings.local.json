@@ -131,7 +131,10 @@
       "Skill(working-with-claude-code)",
       "Skill(superpowers-extended:workflow-orchestrator)",
       "Skill(superpowers-extended:writing-skills)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(gh pr list:*)"
     ],
     "deny": [],
     "ask": [],
