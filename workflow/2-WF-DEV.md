@@ -8,7 +8,7 @@ This document outlines the standard process for project work and documentation, 
 
 This phase is a cycle performed for each individual task. All work is tracked in a central report file for the task.
 
-1.  **Task Specification**
+1.  **Tasks**
     *   **Action**: Creates a detailed technical plan for the task.
     *   **Responsible Agent**: Orchestrator (main agent)
     *   **Output**: `2-EXEC/Specs/TASK-ID-spec.md`
