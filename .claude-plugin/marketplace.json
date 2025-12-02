@@ -10,7 +10,7 @@
       "name": "superpowers-extended",
       "description": "Extended library of core skills, featuring a deterministic workflow orchestrator and a team of specialized agents.",
       "version": "4.0.0",
-      "source": "./",
+      "source": "https://github.com/maximforbusiness/superpowers",
       "author": {
         "name": "Max",
         "email": "maximforbusiness@gmail.com"
