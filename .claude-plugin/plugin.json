@@ -1,13 +1,13 @@
 {
-  "name": "superpowers",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-  "version": "3.5.1",
+  "name": "superpowers-extended",
+  "description": "Extended library of core skills, featuring a deterministic workflow orchestrator and a team of specialized agents.",
+  "version": "4.0.0",
   "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "Max",
+    "email": "maximforbusiness@gmail.com"
   },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/obra/superpowers",
+  "homepage": "https://github.com/maximforbusiness/superpowers",
+  "repository": "https://github.com/maximforbusiness/superpowers",
   "license": "MIT",
-  "keywords": ["skills", "tdd", "debugging", "collaboration", "best-practices", "workflows"]
+  "keywords": ["skills", "orchestration", "agents", "workflow", "tdd", "debugging"]
 }

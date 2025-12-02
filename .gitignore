@@ -1,2 +1,10 @@
 .worktrees/
 .private-journal/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+

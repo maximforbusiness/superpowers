@@ -23,6 +23,26 @@ Before responding to ANY user message, you MUST complete this checklist:
 4. ☐ Announce which skill you're using
 5. ☐ Follow the skill exactly
 
+---
+
+## ⚡ TASK ROUTING ⚡
+
+**BEFORE using the checklist above, you MUST first route the user's request.**
+
+1.  **Analyze the User Request:** Is the user asking to start a new development task, fix a bug, or add a feature that requires multiple steps and code changes?
+
+2.  **Route to Workflow Orchestrator:**
+    *   **IF YES**, and the task is a standard development lifecycle (plan -> build -> test -> deploy):
+        1.  **DO NOT** proceed with the checklist below.
+        2.  **IMMEDIATELY** use the `Skill` tool to run **`workflow-orchestrator`**.
+        3.  Announce: "This is a development task. I am activating the Workflow Orchestrator to manage the process."
+        4.  Follow the `workflow-orchestrator` skill precisely.
+
+    *   **IF NO** (e.g., the user is asking a question, requesting a simple file lookup, or giving a single command):
+        1.  Proceed with the "MANDATORY FIRST RESPONSE PROTOCOL" checklist as normal.
+
+---
+
 **Responding WITHOUT completing this checklist = automatic failure.**
 
 ## Critical Rules

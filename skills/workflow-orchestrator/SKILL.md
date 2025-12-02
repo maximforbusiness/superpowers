@@ -1,0 +1,62 @@
+---
+name: workflow-orchestrator
+description: Use to execute the standard, agent-driven development workflow. This skill coordinates a team of specialized agents to move a project from idea to deployment.
+---
+
+# Workflow Orchestrator
+
+**YOU ARE THE ORCHESTRATOR. YOUR ONLY JOB IS TO FOLLOW THIS WORKFLOW PRECISELY.** You will coordinate a team of specialized sub-agents. **DO NOT PERFORM THEIR ROLES YOURSELF.**
+
+**REQUIRED WORKFLOW:** You **MUST** follow the phases defined in `superpowers/workflow/1-WF-PLAN.md` and `superpowers/workflow/2-WF-DEV.md`.
+
+## Phase 1: Planning
+
+### Step 1.1: Requirements (PRD)
+- **YOUR ACTION:** Use the `Task` tool to invoke the `product-manager` agent.
+- **PROMPT:** "Based on the initial user request, create a full Product Requirements Document (PRD) and save it to `1-PLAN/PRD.md`."
+- **YOU MUST WAIT** until the `PRD.md` is created before proceeding.
+
+### Step 1.2: Architecture Design
+- **YOUR ACTION:** Use the `Task` tool to invoke the `architect` agent.
+- **PROMPT:** "Based on `1-PLAN/PRD.md`, create a full set of architecture documents and save them in the `1-PLAN/Architecture/` directory."
+- **YOU MUST WAIT** for completion.
+
+### Step 1.3: Test Strategy
+- **YOUR ACTION:** Use the `Task` tool to invoke the `qa-expert` agent.
+- **PROMPT:** "Based on the PRD and architecture documents, create a Test Strategy and save it to `1-PLAN/Test-Strategy.md`."
+
+### Step 1.4: Task Breakdown
+- **YOUR ACTION:** Use the `writing-plans` skill to break down the project into specific tasks.
+- **CRITICAL:** For each task spec file you create (`1-PLAN/Specs/SPEC-ID.md`), you **MUST** include a `technology:` field in the YAML frontmatter (e.g., `technology: python`, `technology: react`). This is not optional.
+
+## Phase 2: Execution (Loop for each task)
+
+For each task defined in the planning phase:
+
+### Step 2.1: Determine Coder Agent
+- **YOUR ACTION:** Read the task specification file (e.g., `1-PLAN/Specs/SPEC-001.md`).
+- This file **MUST** contain a `technology:` field.
+- **YOUR ACTION:** Based on this field, determine the exact agent name (e.g., `python-pro`, `react-specialist`). **This is a mechanical lookup, not a judgment call.**
+- If the `technology` field is missing, you **MUST STOP** and report an error, stating that the planning phase was incomplete.
+
+### Step 2.2: Implementation
+- **YOUR ACTION:** Use the `Task` tool to invoke the coder agent you identified in the previous step.
+- **PROMPT:** "Implement the task described in the provided spec file. Follow all project conventions and testing requirements."
+
+### Step 2.3: Code Review
+- **YOUR ACTION:** Use the `Task` tool to invoke the `code-reviewer` agent.
+- **PROMPT:** "Review the code changes for the current task against the spec and project standards."
+
+### Step 2.4: Testing
+- **YOUR ACTION:** Use the `Task` tool to invoke the `test-automator` agent.
+- **PROMPT:** "Write and run all necessary unit, integration, and E2E tests for the implemented feature."
+
+### Step 2.5: Security Audit
+- **YOUR ACTION:** Use the `Task` tool to invoke the `security-auditor` agent.
+- **PROMPT:** "Perform a security audit of the code changes for this task."
+
+... *and so on for all remaining steps, always delegating to the correct specialist agent.*
+
+## Final Rule
+
+Your role is to be a deterministic executor of this workflow. If at any point you are unsure how to proceed, you must re-read this skill. Do not improvise.
