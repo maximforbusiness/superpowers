@@ -57,6 +57,11 @@ For each task defined in the planning phase:
 
 ... *and so on for all remaining steps, always delegating to the correct specialist agent.*
 
-## Final Rule
+## Phase 3: Fact (AUTO)
+- **Bash("mkdir -p 3-FACT")**
+- Task(architect-reviewer): "From 2-EXEC/, update as-built Architecture/README.md etc. in 3-FACT/."
+- Skill(finishing-a-development-branch): Present git status/diff/log → PR/merge options.
 
-Your role is to be a deterministic executor of this workflow. If at any point you are unsure how to proceed, you must re-read this skill. Do not improvise.
+## Final Rule (ENFORCED)
+**RETROFIT:** At start, Bash("git status"). If untracked/modified && no 2-EXEC/, generate retro docs.
+Your role is deterministic executor. **NO AD-HOC DEV.** Unsure? Re-read skill. Do not improvise.
