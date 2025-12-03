@@ -11,10 +11,21 @@ description: Use to execute the standard, agent-driven development workflow. Thi
 
 ## Phase 1: Planning
 
-### Step 1.1: Requirements (PRD)
+### Step 1.1: Requirements (PRD) - Two-Step Process
+
+#### Step 1.1a: Draft & Questions
 - **YOUR ACTION:** Use the `Task` tool to invoke the `product-manager` agent.
-- **PROMPT:** "Based on the initial user request, create a full Product Requirements Document (PRD) and save it to `1-PLAN/PRD.md`."
-- **YOU MUST WAIT** until the `PRD.md` is created before proceeding.
+- **PROMPT:** "Based on the initial user request, create a draft of the Product Requirements Document (PRD). Identify any missing information and generate a list of clarifying questions for the user. Return the draft PRD and the list of questions as your final report."
+
+#### Step 1.1b: User Clarification
+- **YOUR ACTION:**
+  1. Receive the draft PRD and questions from the `product-manager`.
+  2. Use the `AskUserQuestion` tool to present the questions to the user and get their answers.
+
+#### Step 1.1c: Finalize PRD
+- **YOUR ACTION:** Use the `Task` tool to invoke the `product-manager` agent again (you can use `resume` with the previous `agentId`).
+- **PROMPT:** "Here are the user's answers to your questions: [Insert user answers here]. Please update the PRD with this new information, finalize it, and save it to `1-PLAN/PRD.md`."
+- **YOU MUST WAIT** until the final `PRD.md` is created before proceeding.
 
 ### Step 1.2: Architecture Design
 - **YOUR ACTION:** Use the `Task` tool to invoke the `architect` agent.
