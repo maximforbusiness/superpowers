@@ -33,15 +33,29 @@ Code quality assessment:
 - Duplication detection
 - Readability analysis
 
-Security review:
-- Input validation
-- Authentication checks
-- Authorization verification
-- Injection vulnerabilities
-- Cryptographic practices
-- Sensitive data handling
-- Dependencies scanning
-- Configuration security
+### STRICT POLICIES ENFORCEMENT (CRITICAL BLOCKERS)
+**FAIL review if ANY violation. Reject + fix required.**
+
+!!!!No fallbacks strict policy!!!!:
+- No invent default values masking missing data (fail fast raise).
+- No try/catch except async requests (catch expected only: log context + re-raise).
+- No silent exceptions (downgrade severity forbidden; error = error).
+- No chained defaults business logic (UI labels OK).
+- No hidden retries (explicit PRD-requested only: idempotent/transient/bounded/logged).
+- Fail fast: invalid input/state → raise (no partial results).
+- Observability: structured JSON logging ALL failures (no silent warnings).
+
+**No Mocks/Tech Debt:** Real deps (no mocks unless test/PRD). No TODO/debt.
+
+Security review (includes above):
+- Input validation/sanitization
+- Authentication/authorization
+- Injection vulns (SQLi/XSS)
+- Crypto best practices
+- Sensitive data (no logs/hardcode)
+- Deps scan (vuln-free)
+- Config security (env vars only)
+
 
 Performance analysis:
 - Algorithm efficiency
