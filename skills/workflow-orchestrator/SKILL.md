@@ -9,28 +9,20 @@ description: Use to execute the standard, agent-driven development workflow. Thi
 
 **REQUIRED WORKFLOW:** You **MUST** follow the phases defined in `superpowers/workflow/1-WF-PLAN.md` and `superpowers/workflow/2-WF-DEV.md`.
 
-## Phase 1: Planning
 
-### Step 1.1: Requirements (PRD) - Two-Step Process
+## Phase 1: Planning (Interactive)
 
-#### Step 1.1a: Draft & Questions
-- **YOUR ACTION:** Use the `Task` tool to invoke the `product-manager` agent.
-- **PROMPT:** "Based on the initial user request, create a draft of the Product Requirements Document (PRD). Identify any missing information and generate a list of clarifying questions for the user. Return the draft PRD and the list of questions as your final report."
+This phase is interactive. For each step, you will delegate to a specialist agent to produce drafts and questions, then present those questions to the user for clarification, and finally delegate again to finalize the documents.
 
-#### Step 1.1b: User Clarification
-- **YOUR ACTION:**
-  1. Receive the draft PRD and questions from the `product-manager`.
-  2. Use the `AskUserQuestion` tool to present the questions to the user and get their answers.
-
-#### Step 1.1c: Finalize PRD
-- **YOUR ACTION:** Use the `Task` tool to invoke the `product-manager` agent again (you can use `resume` with the previous `agentId`).
-- **PROMPT:** "Here are the user's answers to your questions: [Insert user answers here]. Please update the PRD with this new information, finalize it, and save it to `1-PLAN/PRD.md`."
-- **YOU MUST WAIT** until the final `PRD.md` is created before proceeding.
+### Step 1.1: Requirements (PRD)
+1.  **Draft & Questions:** Invoke `product-manager` with the prompt: "Based on the initial user request, create a draft PRD and write it to `1-PLAN/PRD.md`. If any information is unclear, return a list of clarifying questions."
+2.  **User Clarification:** If the agent returns questions, use `AskUserQuestion` to get answers from the user.
+3.  **Finalize:** If questions were asked, invoke `product-manager` again (with `resume`). Prompt: "Here are the user's answers: [Insert answers]. Please update `1-PLAN/PRD.md` to finalize it."
 
 ### Step 1.2: Architecture Design
-- **YOUR ACTION:** Use the `Task` tool to invoke the `architect` agent.
-- **PROMPT:** "Based on `1-PLAN/PRD.md`, create a full set of architecture documents and save them in the `1-PLAN/Architecture/` directory."
-- **YOU MUST WAIT** for completion.
+1.  **Draft & Questions:** Invoke `architect` with the prompt: "Based on `1-PLAN/PRD.md`, create draft architecture documents in `1-PLAN/Architecture/`. For key decisions with multiple options (e.g., tech stack), create trade-off tables and return a list of questions for the user to make a choice."
+2.  **User Clarification:** If the agent returns questions, use `AskUserQuestion` to get answers from the user.
+3.  **Finalize:** If questions were asked, invoke `architect` again (with `resume`). Prompt: "Here are the user's choices: [Insert answers]. Please update the documents in `1-PLAN/Architecture/` to finalize them."
 
 ### Step 1.3: Test Strategy
 - **YOUR ACTION:** Use the `Task` tool to invoke the `qa-expert` agent.
